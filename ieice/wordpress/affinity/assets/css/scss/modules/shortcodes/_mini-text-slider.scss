@@ -1,0 +1,67 @@
+/* ==========================================================================
+   #Mini Text Slider styles - start
+   ========================================================================== */
+.mkd-mini-text-slider {
+	visibility: hidden;
+
+	h3 {
+		font-weight: 700;
+		margin-bottom: 20px;
+        font-size: 40px;
+	}
+
+	h4 {
+		font-weight: 400;
+		color: #666666;
+		line-height: 33px;
+        font-size: 18px;
+	}
+
+	p {
+		margin: 20px 0px 17px;
+	}
+
+	.owl-controls {
+		margin-top: 21px;
+		height: 50px;
+		position: relative;
+
+		.owl-prev,
+		.owl-next {
+			width: 50px;
+			height: 100%;
+			background-color: #201f24;
+			float: left;
+			text-align: center;
+			line-height: 50px;
+			font-size: 34px;
+			color: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            @include mkdTransition(background-color 0.3s ease);
+
+			&:hover {
+				background-color: $first-main-color;
+			}
+		}
+
+        .mkd-prev-icon,
+        .mkd-next-icon{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            position: relative;
+            display: block;
+
+            span{
+                line-height: 50px;
+            }
+        }
+
+		.owl-prev {
+			margin-right: 10px;
+		}
+	}
+}
+/* ==========================================================================
+   #Mini Text Slider styles - end
+   ========================================================================== */

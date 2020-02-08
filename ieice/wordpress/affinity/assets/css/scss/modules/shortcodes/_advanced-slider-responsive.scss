@@ -1,0 +1,57 @@
+@include ipad-landscape {
+    .mkd-advanced-holder {
+        .cards,
+        .cards .card {
+            height: 50px;
+        }
+
+        .mkd-advanced-slider-holder-outer {
+            padding-top: 10px;
+            padding-bottom: 100px;
+
+            .controls.arrows {
+                .button {
+                    width: 65px;
+                    height: 65px;
+
+                    span{
+                        line-height: 65px;
+                        font-size: 25px;
+                    }
+                }
+            }
+
+            .controls.bullets {
+                bottom: -83px;
+            }
+        }
+    }
+}
+
+@include phone-portrait {
+    .mkd-advanced-holder {
+        .cards,
+        .cards .card {
+            height: 30px;
+        }
+
+        .mkd-advanced-slider-holder-outer {
+            padding-bottom: 50px;
+
+            .controls.arrows {
+                .button {
+                    display: none;
+                }
+            }
+
+            .controls.bullets {
+                bottom: -55px;
+
+                .dots .dots-inner .dot {
+                    margin: 0px 3px;
+                }
+            }
+        }
+    }
+
+}

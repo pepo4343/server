@@ -1,0 +1,164 @@
+.mkd-rf-holder {
+	input[type=text],
+	select {
+		border: none;
+		outline: none;
+		background-color: transparent;
+	}
+
+	.mkd-rf-col-holder {
+		float: left;
+		width: 30%;
+
+		&.mkd-rf-time-col {
+			width: 25%;
+
+			.mkd-rf-field-holder {
+				width: 83%;
+			}
+		}
+
+		&.mkd-rf-btn-holder {
+			width: 15%;
+
+			.mkd-btn {
+				padding: 9px 9px;
+			}
+		}
+	}
+
+	.mkd-rf-field-holder {
+		width: 70%;
+		float: left;
+		background-color: transparent;
+		position: relative;
+
+		select,
+		input[type=text] {
+			padding-left: 15px;
+			padding-right: 45px;
+			display: block;
+			width: 100%;
+			font-family: $headings-font-family;
+			color: #111;
+			font-size: 13px;
+			line-height: 22px;
+			font-weight: 500;
+			border: 2px solid #111;
+			margin: 0;
+
+			@include mkdBorderRadius(0);
+			@include mkdBoxSizing(border-box);
+
+		}
+
+		input[type=text] {
+			padding-top: 10px;
+			padding-bottom: 11px;
+
+			&::-webkit-input-placeholder {
+				color: #111;
+			}
+
+			&:-moz-placeholder {
+				color: #111;
+				opacity: 1;
+			}
+
+			&::-moz-placeholder {
+				color: #111;
+				opacity: 1;
+			}
+		}
+
+		select {
+			padding-top: 11px;
+			padding-bottom: 11px;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			text-indent: 1px;
+			text-overflow: '';
+			cursor: pointer;
+
+			&::-ms-expand {
+				display: none;
+			}
+		}
+
+		.mkd-rf-icon {
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 45px;
+			line-height: 45px;
+			font-size: 20px;
+			height: 100%;
+			text-align: center;
+
+			span {
+				color: #111;
+				vertical-align: middle;
+			}
+		}
+
+		@include mkdBoxSizing(border-box);
+	}
+
+	.mkd-btn {
+		display: block;
+		font-size: 14px;
+		letter-spacing: 0;
+		line-height: 25px;
+		padding: 9px 20px;
+		width: 100%;
+
+		&.mkd-btn-icon .mkd-btn-icon-holder,
+		.mkd-btn-text {
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+	}
+
+	.mkd-rf-label {
+		width: 30%;
+		text-align: center;
+		display: inline-block;
+		line-height: 44px;
+		font-size: 13px;
+		text-transform: uppercase;
+		color: #111;
+		font-family: $headings-font-family;
+	}
+
+	&.mkd-skin-light {
+		.mkd-rf-icon span,
+		.mkd-rf-label {
+			color: #fff;
+		}
+
+		select,
+		input[type=text] {
+			color: #fff;
+			border: 2px solid rgba(255, 255, 255, 0.5);
+		}
+
+		select option {
+			color: $default-text-color;
+		}
+
+		input[type=text] {
+
+			&::-webkit-input-placeholder {
+				color: #fff;
+			}
+
+			&:-moz-placeholder {
+				color: #fff;
+			}
+
+			&::-moz-placeholder {
+				color: #fff;
+			}
+		}
+	}
+}

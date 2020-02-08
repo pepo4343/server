@@ -1,0 +1,46 @@
+/* ==========================================================================
+   WooCommerce Buttons styles - begin
+   ========================================================================== */
+
+.woocommerce-page .mkd-content,
+div.woocommerce {
+
+	a.button,
+	a.added_to_cart,
+	input[type="submit"],
+	button[type="submit"] {
+		position: relative;
+		display: inline-block;
+		font-family: $headings-font-family;
+		width: auto;
+		height: 49px;
+		line-height: 49px;
+		padding: 0 31px;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.5px;
+		color: #fff;
+		background-color: $first-main-color;
+		border: 0;
+		outline: none;
+		cursor: pointer;
+		vertical-align: middle;
+		text-transform: uppercase;
+		-webkit-appearance: none;
+		@include mkdBoxSizing(border-box);
+		@include mkdTransition(color .2s ease-in-out, background-color .2s ease-in-out, border-color .2s ease-in-out);
+
+		&:hover {
+			color: #fff;
+			background-color: #56db96;
+		}
+	}
+
+	a.button.added {
+		display: none;
+	}
+}
+
+/* ==========================================================================
+   WooCommerce Buttons styles - end
+   ========================================================================== */

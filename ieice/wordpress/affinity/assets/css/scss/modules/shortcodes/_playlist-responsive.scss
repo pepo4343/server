@@ -1,0 +1,18 @@
+@include mac {
+	.mkd-playlist {
+		padding: 43px 30px 43px;
+		.mkd-playlist-title {
+			margin-bottom: 20px;
+		}
+
+		.mkd-playlist-item {
+			margin: 0;
+		}
+	}
+}
+
+@include ipad-landscape {
+	.mkd-playlist {
+		padding: 30px 30px 22px;
+	}
+}

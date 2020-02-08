@@ -1,0 +1,14 @@
+@include ipad-portrait{
+
+  .mkd-restaurant-menu{
+
+      .mkd-rstrnt-item{
+        width: 100%;
+        padding: 30px;
+
+        .mkd-rsrnt-item-holder{
+          border-right: none;
+        }
+      }
+  }
+}

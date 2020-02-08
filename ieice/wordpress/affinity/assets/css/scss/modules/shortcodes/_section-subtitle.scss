@@ -1,0 +1,15 @@
+.mkd-section-subtitle-holder {
+	.mkd-section-subtitle {
+		text-transform: none;
+		font-size: 18px;
+		margin:0;
+		font-weight: 400;
+		line-height: 1.8333em;
+		font-family: $headings-font-family;
+	}
+
+	&.mkd-section-subtitle-center {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

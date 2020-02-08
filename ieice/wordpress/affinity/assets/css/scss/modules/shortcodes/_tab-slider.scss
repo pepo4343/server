@@ -1,0 +1,79 @@
+.mkd-tab-slider-holder {
+    ul {
+        list-style-type: none;
+        margin: 0;
+    }
+
+    .mkd-tab-slider-item {
+        display: none;
+        overflow: hidden;
+    }
+
+
+    .mkd-tab-slide-holder {
+        width: 100%;
+
+        .mkd-tab-slide-content {
+            text-align: left;
+            @include mkdBoxSizing(border-box);
+        }
+
+    }
+
+    .mkd-tab-slider-nav {
+        margin-bottom: 70px;
+        text-align: center;
+
+        .mkd-tab-slider-nav-item {
+            padding: 0px 20px;
+            display: inline-block;
+            height: 18px;
+            position: relative;
+            cursor: pointer;
+            @include mkdTransition(all 0.15s ease);
+
+            &:hover,
+            &.flex-active {
+                h6.mkd-tab-slider-nav-title {
+                    color: $first-main-color;
+                }
+            }
+            
+            h6.mkd-tab-slider-nav-title {
+                color: $default-text-color;
+                position: relative;
+                text-transform: none;
+                font-size: 14px;
+                line-height: 18px;
+                font-weight: 600;
+                margin: 0;
+                text-transform: uppercase;
+                @include mkdTransition(color 0.15s ease-out);
+
+                &:after{
+                    background-color: $first-main-color;
+                    bottom: 0;
+                    content: "";
+                    height: 1px;
+                    left: 0;
+                    position: absolute;
+                    transition: width 0.2s cubic-bezier(0.6, 0, 0.26, 0.99) 0s;
+                    width: 0;
+                }
+            }
+
+            &:hover h6.mkd-tab-slider-nav-title:after{
+                width: 100%;
+            }
+        }
+
+    }
+
+    &.mkd-tab-slider-light .mkd-tab-slider-nav .mkd-tab-slider-nav-item:not(:hover):not(.flex-active) h6.mkd-tab-slider-nav-title {
+        color: $header-light-color;
+    }
+
+    &.mkd-tab-slider-dark .mkd-tab-slider-nav .mkd-tab-slider-nav-item:not(:hover):not(.flex-active) h6.mkd-tab-slider-nav-title {
+        color: $header-dark-color;
+    }
+}

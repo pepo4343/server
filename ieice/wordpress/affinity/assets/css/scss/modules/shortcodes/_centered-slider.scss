@@ -1,0 +1,31 @@
+.mkd-centered-slider {
+	opacity:0;
+	margin: 0;
+
+	.slick-track {
+		padding:7% 0;
+	}
+
+	.slick-slide {
+		position: relative;
+		z-index:10;
+		outline: 0;
+		cursor: -webkit-grab;
+		cursor: grab;
+
+		@include mkdBoxShadow(1px 1px 1px 0px rgba(0, 0, 0, 0.08));
+		@include mkdTransition(transform 0.2s ease, box-shadow 0.2s ease);
+
+		&.slick-center {
+			@include mkdBoxShadow(1px 2px 9px 1px rgba(0, 0, 0, 0.09));
+		}
+	}
+
+	&.appear {
+		opacity: 1;
+	}
+
+	&.full-width {
+		margin:0 -5%;
+	}
+}

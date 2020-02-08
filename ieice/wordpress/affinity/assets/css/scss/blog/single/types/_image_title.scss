@@ -1,0 +1,141 @@
+body.single-post {
+	.mkd-container > .mkd-post-image-title {
+		position: relative;
+		text-align: center;
+		padding: 14% 0;
+		background-size: cover;
+
+		&.left {
+			text-align: right;
+		}
+
+		&.right {
+			text-align: left;
+		}
+
+		.mkd-post-image-title-overlay {
+			background-color: #333232;
+			opacity:0.85;
+			position: absolute;
+			top:0;
+			left:0;
+			height:100%;
+			width:100%;
+		}
+
+		.mkd-post-image-title-inner {
+			position: relative;
+			z-index: 11;
+		}
+
+		.mkd-post-title {
+			font-size: 72px;
+			color: #fff;
+			margin-top: 16px;
+			
+			@include ipad-portrait {
+				font-size: 40px;
+			}
+
+			@include phone-portrait {
+				font-size: 32px;
+			}
+		}
+
+		.mkd-post-info {
+			margin-top: 26px;
+			font-family: $headings-font-family;
+			font-weight: 600;
+			color: #fff;
+
+			i {
+				color: #ababab;
+				padding-right: 6px;
+				font-size: 16px;
+			}
+
+			> div {
+				display: inline-block;
+				padding-right: 10px;
+			}
+
+			.mkd-post-info-category {
+
+				a {
+					font-size: 12px;
+					text-transform: uppercase;
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+.mkd-blog-holder {
+
+	&.mkd-blog-single {
+
+		&.mkd-blog-image-title {
+
+			& {
+				& > article, & > div {
+					width: 66%;
+					margin-left: auto;
+					margin-right: auto;
+
+					.mkd-grid-col-9 &, .mkd-grid-col-8 & {
+						width: 100%;
+					}
+				}
+			}
+
+			.mkd-tags {
+				a {
+					display: inline-block;
+					font-family: $headings-font-family;
+					text-transform: uppercase;
+					color: #a1a1a1;
+					font-size: 12px;
+					font-weight: 600;
+					padding: 0px 16px;
+					background-color: #f5f5f5;
+					border: 1px solid #a1a1a1;
+					height: 29px;
+					line-height: 31px;
+					margin-right: 10px;
+				}
+			}
+
+			.mkd-tags-share-holder {
+				margin-top: 33px;
+				margin-bottom: 55px;
+
+				.mkd-single-tags-holder {
+					float: left;
+				}
+
+				.mkd-share-icons-single {
+					float: right;
+
+					a {
+						color: #a1a1a1;
+
+						&:hover {
+							color: #828181;
+						}
+					}
+
+					.mkd-share-label {
+						display: inline-block;
+						text-transform: uppercase;
+						color: #a1a1a1;
+					}
+
+					.mkd-social-share-holder {
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+}

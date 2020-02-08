@@ -1,0 +1,41 @@
+@media only screen and (max-width: map-get($breakpoints, laptop-landscape)) {
+
+	.mkd-testimonials-holder-inner .testimonials-grid.mkd-four-columns {
+		width: 50%;
+	}
+}
+
+@media only screen and (max-width: map-get($breakpoints, ipad-portrait)) {
+
+	.mkd-testimonials-holder-inner .testimonials-grid.mkd-three-columns {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: map-get($breakpoints, phone-landscape)) {
+
+  	.mkd-testimonials.testimonials-slider{
+  		.slick-list {
+  			max-width: 80%;
+  			margin: auto;
+  		}
+
+	  	.slick-arrow {
+			&.slick-next {
+			  	right: 15px;
+		  	}
+		}
+	}
+
+	.mkd-testimonials-holder-inner .testimonials-grid.mkd-two-columns {
+		width: 100%;
+	}
+
+	.mkd-testimonials-holder-inner .testimonials-grid.mkd-three-columns {
+		width: 100%;
+	}
+
+	.mkd-testimonials-holder-inner .testimonials-grid.mkd-four-columns {
+		width: 100%;
+	}
+}

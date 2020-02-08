@@ -1,0 +1,31 @@
+@include laptop-landscape-large {
+	.mkd-fullscreen-above-menu-widget-holder {
+		top: 10%;
+	}
+
+	nav.mkd-fullscreen-menu ul li {
+		a span {
+			margin: 12px 0 28px;
+		}
+
+		&:last-child {
+			a > span:not(.mkd-menu-item-description) {
+				margin-bottom: 90px;
+			}
+		}
+	}
+}
+
+@include mac {
+	nav.mkd-fullscreen-menu ul li {
+		a span {
+			margin: 10px 0 25px;
+		}
+
+		&:last-child {
+			a > span:not(.mkd-menu-item-description) {
+				margin-bottom: 100px;
+			}
+		}
+	}
+}

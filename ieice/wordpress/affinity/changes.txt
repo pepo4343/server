@@ -1,0 +1,113 @@
+1.9
+- Added WooCommerce 3.7.0 compatibility
+- Updated WPBakery Page Builder to 6.0.5
+- Updated Revolution Slider to 6.1.1
+- Updated Core Plugin to 1.2.3
+- Minor improvements
+
+1.8
+- Added WooCommerce 3.6.1 compatibility
+
+1.7.2
+- Fixed buttons fallback when Core not installed
+- Fixed share conditions when Core not installed
+- Fixed product single image when thumbnails not present
+
+1.7.1
+- Updated Core Plugin to 1.2.2
+- Fixed Smooth Scroll JS console error
+- Fixed JS error when map API key isn't present
+- Fixed string escaping where missing
+- Fixed improper escaping
+- Fixed audio post time rail
+- Renamed some theme functions
+- Improved shortcodes loader function
+- Improved setSkin function
+- Improved Demo import
+- Improved JS with .on()
+- Improved sanitized data
+- Envato Market plugin set as required
+- Renamed theme enqueue styles and scripts handles
+
+1.7
+- Added WooCommerce 3.5.7 compatibility
+- Added text domain in theme & plugins where missing
+- Updated Core Plugin to 1.2.1
+- Updated Mikado Instagram feed to 1.1
+- Updated Mikado Twitter feed to 1.2
+- Fixed description for top bar widget areas
+- Fixed child theme parent style
+- Fixed Slider post type markup
+- Changed loading of 3rd party scripts (independently)
+
+1.6.1
+- Fixed dependency for header widget areas
+
+1.6 (Major update)
+- Added WooCommerce 3.5.6 compatibility
+- Added compatibility with Gutenberg plugin
+- Added YITH WooCommerce Wishlist to TGMPA
+- Updated WPBakery Page Builder to 5.7
+- Updated Revolution Slider to 5.4.8.3
+- Updated Core Plugin to 1.2.0
+- Updated pot file
+- Improved theme functions
+- Improved theme security
+- Escaped all variables, text domains etc.
+- Moved Widgets and Shortcodes to Core Plugin
+
+1.5
+- Added WooCommerce 3.3.5 compatibility
+- Added compatibility with PHP 7.2
+- Added Envato Market plugin as required
+- Added recommended plugins (WooCommerce and Contact Form 7)
+- Updated Visual Composer to 5.4.7
+- Updated Revolution Slider to 5.4.7.3
+- Updated Mikado Core to 1.1.3
+- Fixed link target on team element
+- Fixed header misalignment on latest chrome version
+- Improved menu import functionality
+
+1.4
+- Added WooCommerce 3.1.1 compatibility
+- Updated Visual Composer to 5.2.1
+- Updated Revolution Slider to 5.4.5.1
+- Fixed http to https compatibility
+- Fixed potential security issue when saving theme options
+
+1.3
+- Added WooCommerce 3+ compatibility
+- Updated Visual Composer to 5.1.1
+- Updated Revolution slider to version 5.4.3.1
+- Updated Mikado Twitter feed to 1.1
+- Updated Mikado Core to 1.1.2
+- Fixed issue with Mikado Slider
+- Fixed issue with select2 script
+- Fixed issue with Portfolio masonry script
+- Fixed issue with Shop pages sidebar layout
+- Fixed https problem with links
+- Improved loading of dynamic style scripts
+
+1.2
+- Added WooCommerce 2.6.11 compatibility
+- Updated Visual Composer to version 5.0.1
+- Updated Revolution Slider to version 5.3.1.5
+- Updated Mikado Core to 1.1.1
+- Updated Font Awesome icon pack to 4.7.0
+- Fixed dynamic styles script loading
+- Fixed the issue with Comparison Pricing Table button
+- Fixed responsiveness for Horizontal Timeline shortcode
+- Fixed issue with WooCommerce Update Cart button
+- Fixed header fileds dependency on page level
+- Fixed compatibility issue with PHP versions prior to 5.3
+
+1.1.1
+- Updated Mikado Core to 1.1
+- Fixed import functionality bug
+
+
+1.1
+- Added WooCommerce 2.6.8 compatibility
+- Updated Visual Composer to version 5.0
+- Fixed responsiveness for sticky main menu
+- Fixed first color change on shop pages

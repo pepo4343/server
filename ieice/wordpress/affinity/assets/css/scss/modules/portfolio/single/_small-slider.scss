@@ -1,0 +1,66 @@
+/* ==========================================================================
+# Portfolio Single Small Slider - begin
+========================================================================== */
+
+.mkd-portfolio-single-holder.small-slider {
+	.mkd-portfolio-item-content {
+		margin-top: 34px;
+	}
+
+	.mkd-slick-slider {
+		opacity: 0;
+
+		.slick-prev {
+			right: calc(100% - 55px);
+
+			&:before {
+				font-size: 35px;
+				color: #fff;
+			}
+		}
+
+		.slick-next {
+			left: calc(100% - 55px);
+
+			&:before {
+				font-size: 35px;
+				color: #fff;
+			}
+		}
+	}
+
+	.mkd-slick-slider {
+		opacity: 0;
+
+		.slick-prev {
+			right: calc(100% - 65px);
+
+			&:before {
+				content: '\e875';
+				left: -13px;
+				font-family: 'Linearicons-Free';
+				font-size: 65px;
+				line-height: 47px;
+				color: #fff;
+				font-weight: 400;
+			}
+		}
+
+		.slick-next {
+			left: calc(100% - 65px);
+
+			&:before {
+				content: '\e876';
+				font-family: 'Linearicons-Free';
+				font-size: 65px;
+				line-height: 47px;
+				color: #fff;
+				font-weight: 400;
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+# Portfolio Single Small Slider - end
+========================================================================== */

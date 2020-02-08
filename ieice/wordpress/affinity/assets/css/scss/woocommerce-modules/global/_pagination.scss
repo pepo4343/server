@@ -1,0 +1,156 @@
+/* ==========================================================================
+   WooCommerce Pagination styles - begin
+   ========================================================================== */
+.mkd-woo-pagination-holder {
+	@include mkdRelativeHolderLayout();
+	margin: 0 0 66px;
+	clear: both;
+
+	.mkd-woo-pagination-inner {
+		position: relative;
+		display: table;
+		width: 100%;
+		text-align: right;
+	}
+}
+
+.woocommerce-pagination {
+	position: relative;
+	display: block;
+	margin: 0 0 87px;
+	padding: 0;
+
+	.page-numbers {
+		position: relative;
+		display: block;
+		width: auto;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+
+		left: 50%;
+		@include mkdTransform(translateX(-50%));
+		float: left;
+
+		*zoom: 1;
+
+		&:before,
+		&:after {
+			content: " "; /* 1 */
+			display: table; /* 2 */
+		}
+
+		&:after {
+			clear: both;
+		}
+
+		li {
+			position: relative;
+			display: block;
+			float: left;
+			border: 1px solid #dee3eb;
+			margin: 0 4px;
+
+			a,
+			span {
+				position: relative;
+				display: inline-block;
+				font-family: $headings-font-family;
+				margin: 0;
+				padding: 0;
+				vertical-align: middle;
+				text-decoration: none;
+				cursor: pointer;
+				white-space: nowrap;
+				font-size: 14px;
+				font-weight: 500;
+				width: 47px;
+				height: 47px;
+				line-height: 47px;
+				text-align: center;
+				color: #ababab;
+
+				@include mkdTransition(color .2s ease-out, background-color .2s ease-out);
+
+				&:hover,
+				&.current {
+					background-color: rgb(245, 245, 245);
+				}
+			}
+
+			a {
+
+				&.next,
+				&.prev {
+					font-size: 0px;
+					line-height: 33px;
+
+					&:before {
+						display: block;
+						font-family: 'Ionicons';
+						font-size: 16px;
+						line-height: inherit;
+						-webkit-font-smoothing: antialiased;
+						-moz-osx-font-smoothing: grayscale;
+					}
+				}
+
+				&.prev {
+
+					&:before {
+						content: "\34";
+						font-family: 'ElegantIcons';
+						width: 47px;
+						font-size: 22px;
+						height: 47px;
+						font-weight: 500;
+						line-height: 47px;
+					}
+				}
+
+				&.next {
+
+					&:before {
+						content: "\35";
+						font-family: 'ElegantIcons';
+						width: 47px;
+						font-size: 22px;
+						height: 47px;
+						font-weight: 500;
+						line-height: 47px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.mkd-woo-view-all-pagination {
+	position: relative;
+	display: table-cell;
+	vertical-align: top;
+	width: 1%;
+
+	a {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		white-space: nowrap;
+		padding: 0 0 0 2px;
+		color: $default-text-color;
+
+		&:before {
+			content: '|';
+			padding: 0 14px 0 0;
+			color: $default-text-color;
+		}
+
+		&:hover {
+			color: $headings-text-color;
+		}
+	}
+}
+
+/* ==========================================================================
+   WooCommerce Pagination styles - end
+   ========================================================================== */

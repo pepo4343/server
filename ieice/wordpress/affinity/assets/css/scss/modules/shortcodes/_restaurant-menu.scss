@@ -1,0 +1,194 @@
+/* ==========================================================================
+  Restaurant Menu start styles
+  ========================================================================== */
+
+.mkd-restaurant-menu{
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.09);
+
+  .mkd-rstrnt-item{
+
+      position: relative;
+      width: 33.33333%;
+      float: left;
+      @include mkdBoxSizing(border-box);
+      padding: 54px 0 60px 47px;
+
+    .mkd-rsrnt-item-holder{
+
+        border-right: 1px solid #d7dde3;
+    }
+
+    &:not(.mkd-recommended-enabled){
+      .mkd-rsrnt-recommended{
+        display: none;
+      }
+    }
+
+    .mkd-rsrnt-recommended{
+        padding: 8px 18px;
+        background-color: $first-main-color;
+        color:#fff;
+        font-weight:bold;
+        font-size: 12px;
+        text-transform: uppercase;
+        top:0;
+        right:-2px;
+        position: absolute;
+        font-family: $headings-font-family;
+    }
+
+
+
+    &:nth-child(3n) {
+
+      .mkd-rsrnt-item-holder{
+
+        border-right: none;
+      }
+
+    }
+  }
+  .mkd-rstrnt-item-image,
+  .mkd-rstrnt-item-inner{
+
+    vertical-align: top;
+  }
+  .mkd-rstrnt-item-image{
+    display: inline-block;
+    width: 56px;
+    height: 56px;
+    margin-right: 15px;
+    img{
+      @include mkdBorderRadius(50%);
+    }
+  }
+  .mkd-rstrnt-item-inner{
+    text-align: left;
+
+    .mkd-rstrnt-item-stars{
+      color: #f1d700;
+      margin-bottom: 20px;
+
+      span{
+        margin-right: 6px;
+        font-size: 13px;
+        &:last-child{
+          margin-right:0;
+        }
+      }
+    }
+
+
+  }
+  .mkd-rstrnt-bottom-section{
+    position: relative;
+    margin-top: 24px;
+  }
+
+  .mkd-rstrnt-title-price-holder{
+    position: relative;
+    margin-bottom: 20px;
+
+  }
+  .mkd-rstrnt-title{
+    margin: 0 0 10px;
+    padding-right: 30px;
+    text-transform: none;
+    line-height: 1;
+  }
+  .mkd-rstrnt-price-holder{
+    display: inline-block;
+    top: 50%;
+    position: absolute;
+    @include mkdTransform(translateY(-50%));
+
+
+    .mkd-rstrnt-old-price{
+        display: inline-block;
+        color: $first-main-color;
+        margin-right:10px;
+         margin-left: 5px;
+        text-decoration: line-through;
+
+      .mkd-rstrnt-currency{
+        margin-right:-4px;
+      }
+
+    }
+
+    .mkd-rstrnt-price{
+      display: inline-block;
+      font-weight:  bold;
+
+      .mkd-rstrnt-currency{
+        margin-right:-7px;
+      }
+    }
+
+  }
+
+  .mkd-rstrnt-desc{
+    margin: 0;
+    font-family: $default-font-family;
+    color: $default-text-color;
+    padding-right: 45px;;
+  }
+
+  &.mkd-rstrnt-skin-light{
+
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    .mkd-rstrnt-title-price-holder{
+      margin-bottom: 10px;
+    }
+    .mkd-rsrnt-item-holder{
+      border-right: none;
+    }
+
+    .mkd-rstrnt-item{
+       background-color: transparent;
+       padding: 26px 0 7px;
+
+      .mkd-rstrnt-item-inner{
+        .mkd-rstrnt-item-stars{
+          margin-bottom: 14px;
+        }
+      }
+
+    }
+
+    .mkd-rstrnt-bottom-section{
+      margin-top: 10px;
+    }
+
+    .mkd-rstrnt-title,
+    .mkd-rstrnt-desc{
+      color:$header-light-color;
+    }
+
+
+
+    .mkd-rstrnt-bottom-section{
+      .mkd-rstrnt-price-holder{
+        position: relative;
+        transform: none;
+
+          .mkd-rstrnt-price{
+            color:$header-light-color;
+          }
+      }
+    }
+
+
+
+
+  }
+
+}
+/* ==========================================================================
+  Restaurant Menu end styles
+  ========================================================================== */

@@ -1,0 +1,90 @@
+.mkd-playlist {
+	padding: 30px 30px 22px 30px;
+	background-color: #313135;
+
+	.mkd-playlist-subtitle {
+		text-transform: uppercase;
+		color: $first-main-color;
+		font-weight: 500;
+		padding-left: 8px;
+	}
+	.mkd-playlist-title {
+		color: $header-light-color;
+		margin-bottom: 40px;
+		padding-left: 8px;
+	}
+
+	.mkd-playlist-item {
+		margin: 16px 0;
+
+		.mkd-playlist-control {
+			position: relative;
+			display: block;
+			height: 42px;
+			width: 42px;
+			line-height: 40px;
+			text-align: center;
+			background-color: #3d3d42;
+			border-radius: 100%;
+			color: #fff;
+			float: left;
+			cursor: pointer;
+
+			span {
+				font-size: 24px;
+				display: inline-block;
+				position: relative;
+				vertical-align: middle;
+
+				&.mkd-playlist-pause {
+					display: none;
+				}
+			}
+
+		}
+
+		.mkd-playlist-item-title {
+			float: left;
+			width: calc(100% - 42px);
+			padding-left: 25px;
+			text-align: left;
+
+			@include mkdBoxSizing(border-box);
+
+			h5 {
+				color: #fff;
+				margin: 13px 0;
+				font-weight: 500;
+			}
+		}
+
+		&.playing {
+			.mkd-playlist-control {
+				color: $first-main-color;
+			}
+			.mkd-playlist-item-title h5 {
+				color: $first-main-color;
+			}
+
+			.mkd-playlist-control {
+				span.mkd-playlist-play {
+					display: none;
+				}
+				span.mkd-playlist-pause {
+					display: inline-block;
+				}
+			}
+		}
+
+		&.paused {
+			.mkd-playlist-control {
+				span.mkd-playlist-play {
+					display: inline-block;
+				}
+				span.mkd-playlist-pause {
+					display: none;
+				}
+			}
+		}
+	}
+}

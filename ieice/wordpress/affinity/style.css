@@ -1,0 +1,29 @@
+/*
+Theme Name: Affinity
+Theme URI: http://affinity.mikado-themes.com
+Description: A Genuinely Gigantic & Refreshing Multipurpose Theme
+Author: Mikado Themes
+Author URI: http://themeforest.net/user/mikado-themes
+Version: 1.9
+License: GNU General Public License
+License URI: licence/GPL.txt
+Text Domain: affinity
+Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-menu, featured-images, flexible-header, post-formats, sticky-post, translation-ready
+
+*/
+/* @media (min-width: 1024px) {
+    .mkd-page-header {
+        display: block !important;
+        margin-bottom: 40px !important;
+    }
+}
+
+.mkd-content .mkd-content-inner>.mkd-container>.mkd-container-inner,
+.mkd-content .mkd-content-inner>.mkd-full-width>.mkd-full-width-inner {
+
+    padding: 0 !important
+} */
+
+.wpb_widgetised_column .widget ul li a, aside.mkd-sidebar .widget ul li a{
+	font-size:14px!important
+}
