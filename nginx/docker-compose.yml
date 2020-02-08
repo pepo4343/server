@@ -11,6 +11,7 @@ services:
     volumes:
       - ieice_wordpress:/var/www/html
       - ./nginx-conf:/etc/nginx/conf.d
+      - ./nginx.conf:/etc/nginx/nginx.conf
       - ./phpmyadmin/:/var/www/html/phpmyadmin
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
