@@ -1,0 +1,17 @@
+version: "3.2"
+services:
+  udpserver:
+    build: ./udpserver
+    container_name: udpserver
+    restart: unless-stopped
+    networks:
+      - nginx_default
+  dashboard:
+    build: ./dashboard
+    container_name: dashboard
+    restart: unless-stopped
+    networks:
+      - nginx_default
+networks:
+  nginx_default:
+    external: true
