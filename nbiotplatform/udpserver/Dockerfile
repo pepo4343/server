@@ -7,7 +7,7 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 41234
+EXPOSE 41234/udp
 
 CMD ["npm","start"]
 
