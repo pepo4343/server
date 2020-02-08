@@ -7,7 +7,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "41235:41235/udp"
+      - "41234:41234/udp"
     volumes:
       - ieice_wordpress:/var/www/html
       - ./nginx-conf:/etc/nginx/conf.d
