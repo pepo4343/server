@@ -1,15 +1,13 @@
 const dgram = require("dgram");
 const serverudp = dgram.createSocket("udp4");
-
+const path = require("path");
 const express = require("express");
 const http = require("http");
 
-const port = process.env.PORT || 4001;
+const port = 80;
 
 const app = express();
-app.use((req, res, next) => {
-  res.send("hello");
-});
+app.use("/", express.static(path.join(__dirname, "build")));
 
 const serversocket = http.createServer(app);
 const io = require("./socket").init(serversocket);

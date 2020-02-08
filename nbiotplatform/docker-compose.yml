@@ -8,12 +8,6 @@ services:
       - "41234:41234/udp"
     networks:
       - nginx_default
-  dashboard:
-    build: ./dashboard
-    container_name: dashboard
-    restart: unless-stopped
-    networks:
-      - nginx_default
 networks:
   nginx_default:
     external: true
