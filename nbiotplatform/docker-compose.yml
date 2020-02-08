@@ -5,7 +5,7 @@ services:
     container_name: udpserver
     restart: unless-stopped
     ports:
-      - "41234:41234/udp"
+      - "41234/udp:41234/udp"
     networks:
       - nginx_default
   dashboard:
