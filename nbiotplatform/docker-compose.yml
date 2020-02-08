@@ -8,6 +8,12 @@ services:
       - "41234:41234/udp"
     networks:
       - nginx_default
+  test:
+    build: ./test
+    container_name: test
+    restart: unless-stopped
+    networks:
+      - nginx_default
 networks:
   nginx_default:
     external: true
