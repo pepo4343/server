@@ -16,6 +16,8 @@ const serversocket = http.createServer(app);
 const io = require("./socket").init(serversocket);
 
 mongoConnect("nbiot", e => {
+  console.log(e);
+
   serverudp.bind(41234);
 });
 
