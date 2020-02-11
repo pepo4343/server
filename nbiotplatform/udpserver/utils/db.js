@@ -7,7 +7,7 @@ let db;
 
 const mongoConnect = async (db_name, Callback) => {
   try {
-    const client = mongo_client.connect(url, Callback);
+    const client = await MongoClient.connect(url);
     db = client.db(db_name);
   } catch (e) {
     throw e;
