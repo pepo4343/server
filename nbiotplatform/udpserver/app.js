@@ -17,6 +17,8 @@ const io = require("./socket").init(serversocket);
 
 mongoConnect("nbiot", e => {
   console.log(e);
+  console.log(db());
+
   db()
     .collection("raw_data")
     .insertOne({ test: "test" })
