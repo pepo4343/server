@@ -1,6 +1,6 @@
 const mongodb = require("mongodb");
 
-const url = "mongodb://nbiot_mongodb";
+const url = "mongodb://nbiot_mongodb:27017";
 var mongo_client = mongodb.MongoClient;
 
 let db;
