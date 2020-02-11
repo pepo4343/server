@@ -19,9 +19,9 @@ mongoConnect("nbiot", e => {
   console.log(e);
   db()
     .collection("raw_data")
-    .insertOne({ test: "test" }, err => {
-      console.log(err);
-      console.log("inserted");
+    .insertOne({ test: "test" })
+    .then(() => {
+      console.log("test");
     });
   serverudp.bind(41234);
 });
