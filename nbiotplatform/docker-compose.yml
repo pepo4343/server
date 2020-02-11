@@ -6,6 +6,19 @@ services:
     restart: unless-stopped
     networks:
       - nginx_default
+      - nbiot_network
+  nbiot_mongodb:
+    image: mongo
+    container_name: nbiot_mongodb
+    restart: unless-stopped
+    networks:
+      - nbiot_network
+    volumes:
+      - nbiot-volume:/data/db
+volumes:
+  nbiot-volume:
 networks:
+  nbiot_network:
+    driver: bridge
   nginx_default:
     external: true

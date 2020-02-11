@@ -6,12 +6,27 @@ const http = require("http");
 
 const port = 80;
 
+const mongoConnect = require("./utils/db").mongoConnect;
+const db = require("./utils/db").getDb;
+
 const app = express();
-app.use("/", express.static(path.join(__dirname, "build")));
 
 const serversocket = http.createServer(app);
+
 const io = require("./socket").init(serversocket);
+
+mongoConnect("nbiot", e => {
+  serverudp.bind(41234);
+});
+
+/////////////////////////////////////////////
+//////////////// socketio  //////////////////
+/////////////////////////////////////////////
+
+app.use("/", express.static(path.join(__dirname, "build")));
+
 var numClient = 0;
+
 io.on("connection", socket => {
   numClient++;
   io.emit("numclient", { numClient });
@@ -21,7 +36,12 @@ io.on("connection", socket => {
     console.log("Client Disconnected : ", numClient);
   });
 });
+
 serversocket.listen(port, () => console.log(`Listening on port ${port}`));
+
+/////////////////////////////////////////////
+////////////// UDP callbacks ////////////////
+/////////////////////////////////////////////
 serverudp.on("error", err => {
   console.log(`server error:\n${err.stack}`);
   server.close();
@@ -30,11 +50,13 @@ serverudp.on("error", err => {
 serverudp.on("message", (msg, rinfo) => {
   console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
   io.emit("message", { msg: msg.toString() });
+  db.collection("raw_data").insertOne({ test: "test" }, err => {
+    console.log(err);
+    console.log("inserted");
+  });
 });
 
 serverudp.on("listening", () => {
   const address = serverudp.address();
   console.log(`server listening ${address.address}:${address.port}`);
 });
-
-serverudp.bind(41234);
