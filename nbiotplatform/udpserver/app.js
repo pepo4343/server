@@ -54,9 +54,9 @@ serverudp.on("message", (msg, rinfo) => {
   console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
   io.emit("message", { msg: msg.toString() });
 
-  db()
-    .collection("raw_data")
-    .insertOne({ test: "test" });
+  // db()
+  //   .collection("raw_data")
+  //   .insertOne({ test: "test" });
 });
 
 serverudp.on("listening", () => {
