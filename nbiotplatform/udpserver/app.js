@@ -18,6 +18,7 @@ const io = require("./socket").init(serversocket);
 mongoConnect("nbiot", e => {
   console.log(e);
   console.log(db());
+
   serverudp.bind(41234);
 });
 
@@ -52,12 +53,10 @@ serverudp.on("error", err => {
 serverudp.on("message", (msg, rinfo) => {
   console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
   io.emit("message", { msg: msg.toString() });
+
   db()
     .collection("raw_data")
-    .insertOne({ test: "test" }, err => {
-      console.log(err);
-      console.log("inserted");
-    });
+    .insertOne({ test: "test" });
 });
 
 serverudp.on("listening", () => {
