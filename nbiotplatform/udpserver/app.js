@@ -15,7 +15,7 @@ const serversocket = http.createServer(app);
 
 const io = require("./socket").init(serversocket);
 
-mongoConnect("nbiot", e => {
+mongoConnect("nbiot", (e) => {
   console.log(e);
   console.log(db());
 
@@ -26,11 +26,11 @@ mongoConnect("nbiot", e => {
 //////////////// socketio  //////////////////
 /////////////////////////////////////////////
 
-app.use("/", express.static(path.join(__dirname, "build")));
+app.use("/nbiot", express.static(path.join(__dirname, "nbiotbuild")));
 
 var numClient = 0;
 
-io.on("connection", socket => {
+io.on("connection", (socket) => {
   numClient++;
   io.emit("numclient", { numClient });
   console.log("Client Connected :", numClient);
@@ -45,7 +45,7 @@ serversocket.listen(port, () => console.log(`Listening on port ${port}`));
 /////////////////////////////////////////////
 ////////////// UDP callbacks ////////////////
 /////////////////////////////////////////////
-serverudp.on("error", err => {
+serverudp.on("error", (err) => {
   console.log(`server error:\n${err.stack}`);
   server.close();
 });
