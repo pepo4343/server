@@ -55,12 +55,11 @@ serverudp.on("error", (err) => {
 serverudp.on("message", (msg, rinfo) => {
   console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
   const json = JSON.parse(msg);
+  console.log(json);
   if(json.type == "PM"){
     if(json.dev_id==="0001"){ //nbiot
-      console.log(json);
-    }else{
 
-    }
+    }else{}
   }
   io.emit("message", { msg: msg.toString() });
 
