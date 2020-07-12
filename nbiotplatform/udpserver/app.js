@@ -53,8 +53,8 @@ serverudp.on("error", (err) => {
 });
 
 serverudp.on("message", (msg, rinfo) => {
-  console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
-  const json = JSON.parse(msg);
+  console.log(`server got: ${msg} from123 ${rinfo.address}:${rinfo.port}`);
+  const json = JSON.parse(msg.toString());
   console.log(json);
   if(json.type == "PM"){
     if(json.dev_id==="0001"){ //nbiot
