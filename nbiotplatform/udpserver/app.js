@@ -18,6 +18,19 @@ const csvWriterNbiot = createCsvWriter({
   ]
 });
 
+const csvWriterEmtc = createCsvWriter({
+  path: './csv/emtc.csv',
+  append:true,
+  header: [
+    {id: 'PM1_0', title: 'PM1.0'},
+    {id: 'PM2_5', title: 'PM2.5'},
+    {id: 'PM10_0', title: 'PM10.0'},
+    {id: 'Lat', title: 'Latitude'},
+    {id: 'Lng', title: 'Longitude'},
+    {id: 'timestamp', title: 'Timestamp'},
+  ]
+});
+
 
 const port = 80;
 
@@ -84,7 +97,16 @@ serverudp.on("message", async (msg, rinfo) =>  {
         }
       ])
     }else{
-
+      await csvWriterEmtc.writeRecords([
+        {
+          "PM1_0":json.PM1_0.toString(),
+          "PM2_5":json.PM2_5.toString(),
+          "PM10_0":json.PM10_0.toString(),
+          "Lat":json.Lat.toString(),
+          "Lng":json.Lng.toString(),
+          "timestamp":new Date(Date.now()).toISOString(),
+        }
+      ])
     }
   }
   io.emit("message", { msg: msg.toString() });
