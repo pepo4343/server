@@ -3,6 +3,7 @@ const serverudp = dgram.createSocket("udp4");
 const path = require("path");
 const express = require("express");
 const http = require("http");
+const { json } = require("express");
 
 const port = 80;
 
@@ -53,8 +54,18 @@ serverudp.on("error", (err) => {
 
 serverudp.on("message", (msg, rinfo) => {
   console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
+  const json = JSON.parse(msg);
+  if(json.type == "PM"){
+    if(json.dev_id==="0001"){ //nbiot
+      console.log(json);
+    }else{
+
+    }
+  }
   io.emit("message", { msg: msg.toString() });
 
+  
+  
   // db()
   //   .collection("raw_data")
   //   .insertOne({ test: "test" });
