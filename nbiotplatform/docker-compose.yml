@@ -6,6 +6,8 @@ services:
     build: ./udpserver
     container_name: udpserver
     restart: unless-stopped
+    volumes: 
+      - ./udpserver/csv:/app/csv
     networks:
       - nginx_default
       - nbiot_network
