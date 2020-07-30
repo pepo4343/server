@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+<!-- Create a div where the graph will take place -->
+
+<body>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-10">
+
+                <h1 style="font-weight: 400;font-size: 50px;">BedOS</h1>
+                <div class="row justify-content-md-center" style="background-color: gray;padding: 10px;border-radius: 20px;" >
+                    <div class="col-12 col-lg-6">
+                        <div id="my_dataviz"
+                            style="width: 350px;height:600px;border-radius: 20px;overflow: hidden;;background-color: white;margin-right: 20px;">
+                        </div>
+                        
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div>
+                            <h2>ID: 5f0aa25919c10</h2>
+                            <h2>BED NUMBER: 1</h2>
+                            <h2>STATUS: <span id="status"></span></h2>
+                            <h3> WEIGHT1 : <span id="weight1"></span> </h3>
+                            <h3> WEIGHT2 : <span id="weight2"></span> </h3>
+                            <h3> WEIGHT3 : <span id="weight3"></span></h3>
+                            <h3> WEIGHT4 : <span id="weight4"></span></h3>
+                            <div style="border-bottom: 1px solid white;"></div>
+                            <h4>Last message : <span id="lastmsg"></span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+<script>
+
+    var SIZE = 50;
+    // set the dimensions and margins of the graph
+    width = 350,
+        height = 600;
+
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+    var lastMsg = 0;
+    // const socket = io();
+    const socket = io('http://178.128.16.9/');
+    console.log(socket.connected); // false
+
+    socket.on('connect', () => {
+        console.log(socket.connected); // true
+    });
+    var dataInterpolation = d3.scaleLinear().range([0, 50]).domain([-800000, 800000])
+
+    socket.on('message', (data) => {
+
+        var json = JSON.parse(data.msg);
+
+        if (json.bedSerial) {
+
+            lastMsg = Date.now();
+            $("#weight1").text(json.s0);
+            $("#weight2").text(json.s1);
+            $("#weight3").text(json.s2);
+            $("#weight4").text(json.s3);
+
+
+
+            leftAvg = (json.s1 + json.s2) / 2
+            rightAvg = (json.s0 + json.s3) / 2
+
+            diff = rightAvg - leftAvg;
+
+
+            if (json.s0 +
+                json.s1 +
+                json.s2 +
+                json.s3 < 10000) {
+
+                svg.selectAll("rect")
+                    .data(dataGenerator(parseInt(dataInterpolation(diff))))
+                    .transition().duration(300)
+                    .attr("x", function (d) { return x(d.x) })
+                    .attr("y", function (d) { return y(d.y) })
+                    .attr("width", x.bandwidth())
+                    .attr("height", y.bandwidth())
+                    .style("fill", "#F8BBD0")
+                return;
+
+
+            }
+            svg.selectAll("rect")
+                .data(dataGenerator(parseInt(dataInterpolation(diff))))
+                .transition().duration(300)
+                .attr("x", function (d) { return x(d.x) })
+                .attr("y", function (d) { return y(d.y) })
+                .attr("width", x.bandwidth())
+                .attr("height", y.bandwidth())
+                .style("fill", function (d) { return myColor(d.value) })
+
+
+        }
+    });
+
+
+    setInterval(function () {
+
+        if (lastMsg == 0) {
+            $("#lastmsg").text("-")
+        }
+        else {
+            $("#lastmsg").text(timeSince(lastMsg) + " ago")
+
+            if (Date.now() - lastMsg >= 5000) {
+                $("#status").text("OFFLINE")
+                $("#status").css("color", "lightgray")
+            }
+            else {
+                $("#status").text("ONLINE")
+                $("#status").css("color", "lightgreen")
+            }
+        }
+
+
+    }, 1000)
+
+
+
+
+
+    // Labels of row and columns
+
+    var myGroups = Array.from(Array(50).keys())
+    var myVars = Array.from(Array(50).keys())
+
+    // Build X scales and axis:
+    var x = d3.scaleBand()
+        .range([0, width])
+        .domain(myGroups)
+
+
+
+    // Build X scales and axis:
+    var y = d3.scaleBand()
+        .range([height, 0])
+        .domain(myVars)
+
+
+    // Build color scale
+    var myColor = d3.scaleLinear()
+        .range(["white", "#69b3a2"])
+        .domain([0, 1])
+
+
+    data = dataGenerator(60);
+    //Read the data
+    svg.selectAll()
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("x", function (d) { return x(d.x) })
+        .attr("y", function (d) { return y(d.y) })
+        .attr("width", x.bandwidth())
+        .attr("height", y.bandwidth())
+        .style("fill", function (d) { return myColor(d.value) })
+
+
+    function makeGaussian(amplitude, x0, y0, sigmaX, sigmaY) {
+        return function (amplitude, x0, y0, sigmaX, sigmaY, x, y) {
+            var exponent = -(
+                (Math.pow(x - x0, 2) / (2 * Math.pow(sigmaX, 2)))
+                + (Math.pow(y - y0, 2) / (2 * Math.pow(sigmaY, 2)))
+            );
+            return amplitude * Math.pow(Math.E, exponent);
+        }.bind(null, amplitude, x0, y0, sigmaX, sigmaY);
+    }
+    function dataGenerator(x) {
+        let data = []
+        let sigmaY;
+        if (x < 25) {
+            sigmaY = (x / 5) + 5
+        }
+        else {
+            sigmaY = -(x / 5) + 15
+        }
+        var guassian = makeGaussian(1, x, 25, 10, sigmaY);
+        for (let i = 0; i < SIZE; i++) {
+            for (let j = 0; j < SIZE; j++) {
+                data.push({
+                    x: i,
+                    y: j,
+                    value: guassian(i, j)
+                })
+            }
+        }
+        return data
+    }
+
+    function timeSince(date) {
+
+        var seconds = Math.floor((new Date() - date) / 1000);
+
+        var interval = Math.floor(seconds / 31536000);
+
+        if (interval > 1) {
+            return interval + " years";
+        }
+        interval = Math.floor(seconds / 2592000);
+        if (interval > 1) {
+            return interval + " months";
+        }
+        interval = Math.floor(seconds / 86400);
+        if (interval > 1) {
+            return interval + " days";
+        }
+        interval = Math.floor(seconds / 3600);
+        if (interval > 1) {
+            return interval + " hours";
+        }
+        interval = Math.floor(seconds / 60);
+        if (interval > 1) {
+            return interval + " minutes";
+        }
+        return Math.floor(seconds) + " seconds";
+    }
+</script>

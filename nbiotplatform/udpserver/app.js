@@ -56,6 +56,7 @@ mongoConnect("nbiot", (e) => {
 
 app.use("/nbiot", express.static(path.join(__dirname, "nbiotbuild")));
 app.use("/emtc", express.static(path.join(__dirname, "emtcbuild")));
+app.use("/bedos", express.static(path.join(__dirname, "bedos")));
 
 var numClient = 0;
 
