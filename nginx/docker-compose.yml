@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
+      - "443:443"
       - "41234:41234/udp"
       - "41235:41235/udp"
     volumes:
